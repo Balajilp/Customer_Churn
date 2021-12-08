@@ -1,0 +1,135 @@
+ontext
+
+
+Predict behavior to retain customers. You can analyze all relevant customer data and develop focused customer retention programs.
+
+
+Content
+
+
+Each row represents a customer, each column contains customer’s attributes described on the column Metadata.
+The data set includes information about:
+
+
+• Customers who left within the last month – the column is called Churn
+
+
+• Services that each customer has signed up for – phone, multiple lines, internet, online security, online backup, device protection, tech support, and streaming TV and movies
+
+
+• Customer account information – how long they’ve been a customer, contract, payment method, paperless billing, monthly charges, and total charges
+
+
+• Demographic info about customers – gender, age range, and if they have partners and dependents
+
+
+
+Question 1 
+Once the data is read, look at summary statistics to answer the question below
+
+The average Tenure of all the customers in the data is _____ (Calculate the Average Tenure and round it to two decimal places)
+ 
+Question 2 2 pts
+Once the data is read, look at summary statistics to answer the question below
+
+The average Tenure of the customers who churn is and those who do not churn is (round the answer to two decimal places)
+ 
+Question 3
+Once the data is read, look at summary statistics to answer the question below
+3. The Feature MonthlyCharges has ___ missing observations
+ 
+Question 4
+Once the data is read, look at summary statistics to answer the question below
+4.Looking at the summary statistics (using the describe function of pandas)_____ seems to be a potential outlier for tenure.
+ 
+Question 5 
+Once the data is read, look at summary statistics to answer the questions below
+5. lies at or below 99% of the data for the feature MonthlyCharges and lies at or below 99% of the data for the feature Tenure [Numeric Input: round the answer to two decimal places wherever applicable. Example if your answer is 154.6778 say 154.68]
+ 
+Question 6
+Now that we have taken a look at some continuous features, lets take a look at some categorical features and their relationship with the target (‘Churn’)
+
+
+____% is the total percentage of churned customers in the data. [Numeric Input. Rounded up. Example – if 23.67 or 24% write 24 as answer]
+ 
+Question 7
+
+Now that we have taken a look at some continuous features, lets take a look at some categorical features and their relationship with the target (‘Churn’)
+
+ 
+
+Amongst those who churned,  % of the customers who have Dependents tend to churn and  % of the customers who do not have Dependents tend not to churn. Hence, we observe that there is a variation in Churn behaviour by this feature “Dependents”.[Numeric Input Rounded up. Example – if 23.67 or 24% write 24 as answer] [[Create a cross tabulation using Churn and Dependents columns and calculate percentage on the basis of total no. of observations or  rows in the data. In other words use total rows in the data as denominator for percentage]] 
+ 
+Question 8
+
+Now that we have taken a look at some continuous features, lets take a look at some categorical features and their relationship with the target (‘Churn’)
+
+Amongst those customers who churned, customers who opt for____Internet Service have the least percentage of churn. [Character Input - Use the same label as given in the data]
+ 
+Question 9
+
+Now that we have taken a look at some continuous features, lets take a look at some categorical features and their relationship with the target (‘Churn’)
+
+Customers with a ____ contract seem to have the maximum percentage of churn. [Character Input- Use the same label as given in the data]
+ 
+Question 10
+Now that we have taken a look at some continuous features, lets take a look at some categorical features and their relationship with the target (‘Churn’)
+
+
+Customers who use ___ ___ as Payment Method tend to churn the maximum. [Character Input 2 words- Use the same label as given in the data]
+ 
+Question 11
+
+Once the step of Feature Understanding is complete, lets now start Engineering the Features based on the insights about the feature that tend to impact the churn.
+
+1. Treat the missing values in the Feature MonthlyCharges by replacing them with the average value of the Monthly Charges column. Is there a change in overall average value of the Feature Monthly Charges after the missing value treatment?___[Yes/No – Character Input].(In the average values consider changes (if any) only upto two decimals places)
+ 
+Question 12
+
+Once the step of Feature Understanding is complete, lets now start Engineering the Features based on the insights about the feature that tend to impact the churn.
+
+2. Treat the outliers in the column Tenure. All the values that are greater than 72 in this feature, convert those values to 72. There are only two such values. The new average after the outlier treatment for the column Tenure is ____ [Numeric Input – Round upto two decimals. Example if output is 52.324 mention as 52.32 or if its 52.327 mention 52.33]
+ 
+Question 13
+Once the step of Feature Understanding is complete, lets now start Engineering the Features based on the insights about the feature that tend to impact the churn.
+
+3. To prepare the data for modelling, we will need to convert all the categorical variables into quantitative by using one hot encoding. But before we do that, we will also need to bring out information from the features that possible only by combining features. Its seems that customers who have no Partners and no Dependents tend to churn a lot. Instead of having two separate columns – Partner and Dependents in the data, create a feature that has a flag for those with no Partners and no Dependents. Lets call this feature – “Singles”.___% is the percentage of singles that tend to churn.[Numeric Input –Example- If the answer is 24.67 or 25% write it as 25 in the blank] [[Create a cross tabulation using Churn and Singles columns and calculate percentage on the basis of total no. of observations or rows in the data. In other words use total rows in the data as denominator to calculate percentage]]
+ 
+Question 14
+
+4(a.) Create a column where those with Month-to-Month Contract are flagged as 1 and all other labels in the Contract column are flagged as 0. This column has a count of  for 1’s and a count of  for 0’s. [Numeric Input]
+ 
+Question 15
+
+4(b.) Create a bucketed feature for Tenure (Make sure you used the new Tenure column that is treated for outliers). Those with less than 12 months, flag these are “short”, Those with tenure between 12 and 36 months, flag them as “medium” and the rest of the values as “long”.  is the count for the “short” label,  is the count for the “medium” label and  is the count for the “long” label. [Numeric Input]
+ 
+Question 16
+
+4(c.) Create a new column called (Short_Contracts) that’s a combination of Month-to-Month Contracts and customers with short tenures (less than 12 months). __ is the churn percentage for this column Short_Contracts? .[Numeric Input –Example- If the answer is 0.67 or 67% write it as 67 in the blank] .[Numeric Input rounded up (no decimals) –Example- If the answer is 23.67 or 24% write it as 24 in the blank] [[Create a cross tabulation using Churn and Short_Contracts columns and calculate percentage on the basis of total no. of observations or rows in the data. In other words use total rows in the data as denominator for percentage]]
+ 
+
+Question 17
+5. Create a dummy for Payment Method column is such a way that label Electronic Check is flagged as 1 and all the other labels are flagged as zero._____ is the percentage of churn who opt for Electronic Check as a Payment method vs. automatic payment methods..[Numeric Input rounded up (no decimals) –Example- If the answer is 23.67 or 24% write it as 24 in the blank] [[Create a cross tabulation using Churn and this new column and calculate percentage on the basis of total no. of observations or rows in the data. In other words use total rows in the data as denominator for percentage]] 
+ 
+Question 18 
+
+Once the step of Feature Understanding is complete, lets now start Engineering the Features based on the insights about the feature that tend to impact the churn.
+
+6. Create a new column to flag those with No Online Security, No Tech Support, No Device Protection and No Online Backup. _______ is the churn percentage for this column? .[Numeric Input rounded up (no decimals) –Example- If the answer is 23.67 or 24% write it as 24 in the blank] [[Create a cross tabulation using Churn and this new column and calculate percentage on the basis of total no. of observations or  rows in the data. In other words use total rows in the data as denominator for percentage]] 
+ 
+Question 19
+
+7. Its also seen from the data, that those who pay high monthly charges are likely to churn as compared to those who pay less monthly charges. To bring out this information in the model, flag those rows with monthly charges less than 35 as low, 35 to 55 as medium and above 55 as High. _____ is the churn percentage amongst those who pay high monthly charges.
+
+[Numeric Input rounded up (no decimals) –Example- If the answer is 23.67 or 24% write it as 24 in the blank] [[Create a cross tabulation using Churn and the bucketed Monthly Charges column and calculate percentage on the basis of total no. of observations or rows in the data. In other words use total rows in the data as denominator for percentage]]
+
+ 
+
+
+ 
+
+Refer to Telecom data_Data Dictionary.xlsxPreview the documentView in a new window for column description.
+
+ 
+
+Given this context, answer the questions below –
